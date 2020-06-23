@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.javaex.vo.GuestVo;
 
+import com.javaex.vo.GuestVo;
 
 
 public class GuestBookDao {
@@ -107,7 +107,7 @@ public class GuestBookDao {
 				query += "         name, ";
 				query += "         password, ";
 				query += "         content, ";
-				query += "         to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') as reg_date";				
+				query += "         to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') as reg_date ";				
 				query += " from guestbook";
 
 				if (keyword != "" || keyword == null) {
@@ -173,7 +173,49 @@ public class GuestBookDao {
 			return count;
 		}
 		
-		
+		//사람정보
+			public GuestVo getGuest (int no) {
+				
+				GuestVo guestVo = null;
+				
+				getConnection();
+
+				try {
+
+					// 3. SQL문 준비 / 바인딩 / 실행 --> 완성된 sql문을 가져와서 작성할것
+					String query = "";
+					query += " select  no, ";
+					query += "         name, ";
+					query += "         password, ";
+					query += "         content, ";
+					query += "         to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') as reg_date ";				
+					query += " from guestbook";
+					query += " where no = ? ";
+					
+					pstmt = conn.prepareStatement(query); //  물음표 처리 전 리로 만들기
+					pstmt.setInt(1, no); // ?(물음표) 중 1번째 , 순서중요
+			
+
+					rs = pstmt.executeQuery();
+
+					// 4.결과처리
+					while (rs.next()) {
+						int num = rs.getInt("no");
+						String name = rs.getString("name");
+						String password = rs.getString("password");
+						String content = rs.getString("content");
+						String regDate = rs.getString("reg_date");
+
+						guestVo = new GuestVo(no, name, password, content, regDate);
+					}
+
+				} catch (SQLException e) {
+					System.out.println("error:" + e);
+				}
+
+				close();
+				return guestVo;
+			}
 		
 
 }
