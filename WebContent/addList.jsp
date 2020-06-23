@@ -22,6 +22,7 @@
 <title>Insert title here</title>
 </head>
 
+
 <body>
 
 	<form action="./insert.jsp" method="post">
