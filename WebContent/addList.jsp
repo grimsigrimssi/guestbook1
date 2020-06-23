@@ -30,7 +30,7 @@
 	비밀번호: <input type="text" name="password"> <br>
 	내용: <input type="text" name="content"> <br>
 	<button type="submit">확인</button>	
-	</form>
+	</form><br>
 
 
 	<% for(GuestVo guestVo : guestList) {%>
@@ -46,7 +46,7 @@
 				<td><%=guestVo.getNo() %></td>
 				<td><%=guestVo.getName() %></td>
 				<td><%=guestVo.getRegDate() %></td>
-				<td><a href="./delete.jsp?no=<%=guestVo.getNo() %>">삭제</a></td>
+				<td><a href="./deleteForm.jsp?no=<%=guestVo.getNo() %>">삭제</a></td>
 			</tr>
 			<tr>
 			 	<td colspan="4" rowspan="2"><%=guestVo.getContent() %></td>
