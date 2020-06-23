@@ -35,9 +35,10 @@
 	<% for(GuestVo guestVo : guestList) {%>
 	<table border="1">
 		<colgroup>
+			<col style = "width:40px;">
 			<col style = "width:120px;">
-			<col style = "width:120px;">
-			
+			<col style = "width:180px;">
+			<col style = "width:40px;">
 		</colgroup>
 		<tbody>
 			<tr>
@@ -47,8 +48,9 @@
 				<td><a href="./delete.jsp?no=<%=guestVo.getNo() %>">삭제</a></td>
 			</tr>
 			<tr>
-			 	<td colspan="4"><%=guestVo.getContent() %></td>
-			</tr>					
+			 	<td colspan="4" rowspan="2"><%=guestVo.getContent() %></td>
+			</tr>
+					
 		</tbody>		
 	</table>
 	<% } %>

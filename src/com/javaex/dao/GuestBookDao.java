@@ -106,7 +106,7 @@ public class GuestBookDao {
 				query += "         name, ";
 				query += "         password, ";
 				query += "         content, ";
-				query += "         reg_date ";				
+				query += "         to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS') as reg_date";				
 				query += " from guestbook";
 
 				if (keyword != "" || keyword == null) {
