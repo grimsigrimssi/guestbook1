@@ -27,7 +27,7 @@
 	비밀번호: <input type="text" name="password" value="<%=guestVo.getPassword() %>"> <br>
 	<input type="hidden" name="no" value="<%=guestVo.getNo() %>">
 	
-	<button type="submit">확인</button>	
+	<button type="submit"><a href="http://localhost:8088/gb1/addList.jsp">확인</a></button>	
 	</form>
 	<p>
 		<a href="http://localhost:8088/gb1/addList.jsp">메인으로 돌아가기</a>
