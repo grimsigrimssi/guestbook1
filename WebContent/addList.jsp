@@ -49,7 +49,13 @@
 				<td><a href="./deleteForm.jsp?no=<%=guestVo.getNo() %>">삭제</a></td>
 			</tr>
 			<tr>
-			 	<td colspan="4" rowspan="2"><%=guestVo.getContent() %></td>
+			 	<td colspan="4"><%=guestVo.getContent() %></td>
+			</tr>
+			<tr>
+			 	
+			</tr>
+			<tr>
+			 	
 			</tr>
 					
 		</tbody>		
